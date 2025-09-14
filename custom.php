@@ -21,7 +21,7 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
     if (isset($args['where']['slug'])) {
         $query_args['meta_query'] = [
             [
-                'key' => 'workFieldGroup',
+                'key' => 'workFieldGroup_slug',
                 'value' => (String) $args['where']['slug'],
                 'compare' => '='
             ]
