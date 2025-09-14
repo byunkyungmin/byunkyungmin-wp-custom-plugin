@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Byunkyungmin Wordpress Custom Plugins
- * Description: WPGraphQL 커스텀 필드와 where 인자 확장, thumbnail size, menu 삭제
+ * Description: WPGraphQL where 인자 확장, WORK-THUMB, 기본 삭제 등..
  * Author: Byun Kyung Min
  */
 
@@ -15,7 +15,7 @@ add_action('graphql_register_types', function() {
   add_filter('graphql_post_object_connection_query_args', function($query_args, $source, $input, $type) {
     if ('Work' === $type->name && !empty($input['where']['slug'])) {
       $query_args['meta_query'][] = [
-        'key' => 'workFieldGroup', 
+        'key' => 'workFieldGroup_slug', 
         'value' => sanitize_text_field($input['where']['slug']),
         'compare' => '='
       ];
