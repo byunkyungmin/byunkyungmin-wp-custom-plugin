@@ -47,3 +47,16 @@ function remove_default_menu()
     // Comments
     remove_menu_page('edit-comments.php');
 }
+
+// Google Map API ( *.byunkyungmin.work/* 에서만 허용)
+function my_acf_google_map_api( $api ){
+    $api['key'] = 'AIzaSyAckwI1fXrEele34pV26ateuDXzMLR03X8';
+    return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+// Method 2: Setting.
+function my_acf_init() {
+    acf_update_setting('google_api_key', 'xxx');
+}
+add_action('acf/init', 'my_acf_init');
