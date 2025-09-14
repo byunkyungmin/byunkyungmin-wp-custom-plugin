@@ -6,23 +6,30 @@
  */
 
 // Graphql slug where 인자 확장
-add_action('graphql_register_types', function() {
-  register_graphql_field('RootQueryToWorkConnectionWhereArgs', 'slug', [
-    'type' => 'String',
-    'description' => __('Filter works by custom slug', 'default'),
-  ]);
+add_action('graphql_register_types', function () {
 
-  add_filter('graphql_post_object_connection_query_args', function($query_args, $source, $input, $type) {
-    if ('Work' === $type->name && !empty($input['where']['slug'])) {
-      $query_args['meta_query'][] = [
-        'key' => 'workFieldGroup_slug', 
-        'value' => sanitize_text_field($input['where']['slug']),
-        'compare' => '='
-      ];
-    }
-    return $query_args;
-  }, 10, 4);
+    $customposttype_graphql_single_name = "Work";
+
+    register_graphql_field('RootQueryTo' . $customposttype_graphql_single_name . 'ConnectionWhereArgs', 'slug', [
+        'type' => 'String',
+        'description' => __('The databaseId of the post object to filter by', 'your-textdomain'),
+    ]);
 });
+
+add_filter('graphql_post_object_connection_query_args', function ($query_args, $source, $args, $context, $info) {
+
+    if (isset($args['where']['slug'])) {
+        $query_args['meta_query'] = [
+            [
+                'key' => 'workFieldGroup',
+                'value' => (String) $args['where']['slug'],
+                'compare' => '='
+            ]
+        ];
+    }
+
+    return $query_args;
+}, 10, 5);
 
 // 최적화를 위한 Work-thumb사이즈 추가 ( WORK-THUMB )
 add_action('after_setup_theme', function() {
