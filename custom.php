@@ -55,8 +55,10 @@ function my_acf_google_map_api( $api ){
 }
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
-// Method 2: Setting.
-function my_acf_init() {
-    acf_update_setting('google_api_key', 'xxx');
+// heic 업로드 허용( 아이폰 사진 )
+function allow_heic_uploads( $mime_types ) {
+    $mime_types['heic'] = 'image/heic';
+    $mime_types['heif'] = 'image/heif';
+    return $mime_types;
 }
-add_action('acf/init', 'my_acf_init');
+add_filter( 'upload_mimes', 'allow_heic_uploads' );
