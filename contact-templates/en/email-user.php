@@ -7,7 +7,6 @@
       background: #f9f9f9;
       padding: 20px;
     }
-
     .container {
       max-width: 600px;
       margin: 0 auto;
@@ -18,28 +17,15 @@
       padding: 24px;
       text-align: center;
     }
-
     .logo {
       margin-bottom: 16px;
     }
-
-    h2 {
-      margin-top: 0;
-      color: #0066cc;
-    }
-
     .info {
       font-size: 14px;
       color: #555;
       margin-bottom: 12px;
       text-align: left;
     }
-
-    .label {
-      font-weight: bold;
-      color: #333;
-    }
-
     .message-box {
       background: #f2f2f2;
       border-radius: 8px;
@@ -50,7 +36,13 @@
       white-space: pre-wrap;
       text-align: left;
     }
-
+    .caption {
+      font-size: 12px;
+      text-align: left;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
     .footer {
       margin-top: 20px;
       font-size: 12px;
@@ -63,11 +55,14 @@
     <div class="logo">
       <img src="https://cms.byunkyungmin.work/wp-content/uploads/2024/02/png_long.png" alt="Byun Kyung Min Logo" width="200" />
     </div>
-    <h2>새로운 메세지가 도착했어요</h2>
-    <p class="info"><span class="label">보낸 사람: </span><?= esc_html($email) ?></p>
-    <p class="info"><span class="label">페이지: </span><a href="<?= esc_url($url) ?>" target="_blank"><?= esc_html($pageTitle) ?></a></p>
+    <h2>Whether it’s a question or a joke, I got it all 🙂</h2>
+    <p>Thanks for checking out <a href="<?= esc_url($url) ?>" target="_blank"><?= esc_html($pageTitle) ?></a>.</p>
+    <p class="caption">Your message:</p>
     <div class="message-box"><?= nl2br(esc_html($message)) ?></div>
-    <div class="footer">느려도 괜찮아요, 진심을 담아 솔직한 이야기를 공유해보아요.</div>
+    <p>If my reply takes a while, it just means I’m really thinking about it. Hang tight!</p>
+    <p>In the meantime, would you like to listen to <strong><a href="https://music.apple.com/kr/playlist/%EC%9A%94%EC%A6%98-%EB%82%98%EC%9D%98-%EC%B5%9C%EC%95%A0%EA%B3%A1-%EB%AF%B9%EC%8A%A4/pl.pm-8e975ad16716041cc2a38d10923704c3">some of my favorite songs lately</a></strong>?</p>
+    <div class="footer">This email is automatic, but the reply will be written by me. <br />(And I promise, with lots of care!)</div>
   </div>
 </body>
 </html>
+

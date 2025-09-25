@@ -3,11 +3,10 @@
   <meta charset="UTF-8" />
   <style>
     body {
-      font-family: 'NanumSquareNeo', Arial, sans-serif;
+      font-family: Arial, sans-serif;
       background: #f9f9f9;
       padding: 20px;
     }
-
     .container {
       max-width: 600px;
       margin: 0 auto;
@@ -16,26 +15,16 @@
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 24px;
-      text-align: center; /* 이미지와 상단 타이틀 중앙 정렬 */
+      text-align: center;
     }
-
     .logo {
       margin-bottom: 16px;
     }
-
-    h2 {
-      margin-top: 0;
-      font-family: Arial, sans-serif;
-    }
-
     .info {
       font-size: 14px;
       color: #555;
       margin-bottom: 12px;
-      text-align: left; /* 본문은 다시 왼쪽 정렬 */
-    }
-    p {
-      font-size: 14px;
+      text-align: left;
     }
     .message-box {
       background: #f2f2f2;
@@ -58,7 +47,6 @@
       margin-top: 20px;
       font-size: 12px;
       color: #888;
-      text-align: center;
     }
   </style>
 </head>

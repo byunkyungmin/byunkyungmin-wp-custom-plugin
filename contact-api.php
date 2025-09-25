@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Contact API
  * Description: Next.js ContactBubble 전송용 REST API 엔드포인트
- * Version: 1.2
+ * Version: 1.3
  * Author: Byun Kyung Min
  */
 
@@ -28,11 +28,17 @@ function handle_contact_form(WP_REST_Request $request) {
         return new WP_Error('missing_data', '이메일과 메시지는 필수입니다.', ['status' => 400]);
     }
 
-    $admin_to   = get_option('admin_email');
-    $admin_subj = "{$pageTitle}에 관한 새로운 이야기가 도착했어요";
+    // ✅ 언어 감지 (URL에 /en/ 포함 여부)
+    $lang = (strpos($url, '/en/') !== false) ? 'en' : 'ko';
 
+    $admin_to   = get_option('admin_email');
+    $admin_subj = ($lang === 'en') 
+        ? "New message about {$pageTitle}" 
+        : "{$pageTitle}에 관한 새로운 이야기가 도착했어요";
+
+    // 관리자 메일 템플릿
     ob_start();
-    include plugin_dir_path(__FILE__) . 'contact-templates/ko/email-admin.php';
+    include plugin_dir_path(__FILE__) . "contact-templates/{$lang}/email-admin.php";
     $admin_body = ob_get_clean();
 
     $headers_admin = [
@@ -43,9 +49,12 @@ function handle_contact_form(WP_REST_Request $request) {
     $sent_admin = wp_mail($admin_to, $admin_subj, $admin_body, $headers_admin);
 
     // 사용자 회신 메일
-    $user_subj = "{$pageTitle}에 관한 이야기를 잘 받았습니다";
+    $user_subj = ($lang === 'en') 
+        ? "We’ve received your message about {$pageTitle}" 
+        : "{$pageTitle}에 관한 이야기를 잘 받았습니다";
+
     ob_start();
-    include plugin_dir_path(__FILE__) . 'contact-templates/ko/email-user.php';
+    include plugin_dir_path(__FILE__) . "contact-templates/{$lang}/email-user.php";
     $user_body = ob_get_clean();
 
     $headers_user = [
@@ -60,4 +69,3 @@ function handle_contact_form(WP_REST_Request $request) {
         return new WP_Error('mail_failed', '메일 전송에 실패했습니다.', ['status' => 500]);
     }
 }
-

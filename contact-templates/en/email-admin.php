@@ -63,11 +63,11 @@
     <div class="logo">
       <img src="https://cms.byunkyungmin.work/wp-content/uploads/2024/02/png_long.png" alt="Byun Kyung Min Logo" width="200" />
     </div>
-    <h2>새로운 메세지가 도착했어요</h2>
-    <p class="info"><span class="label">보낸 사람: </span><?= esc_html($email) ?></p>
-    <p class="info"><span class="label">페이지: </span><a href="<?= esc_url($url) ?>" target="_blank"><?= esc_html($pageTitle) ?></a></p>
+    <h2>You’ve got a new message ✉️</h2>
+    <p class="info"><span class="label">From: </span><?= esc_html($email) ?></p>
+    <p class="info"><span class="label">Page: </span><a href="<?= esc_url($url) ?>" target="_blank"><?= esc_html($pageTitle) ?></a></p>
     <div class="message-box"><?= nl2br(esc_html($message)) ?></div>
-    <div class="footer">느려도 괜찮아요, 진심을 담아 솔직한 이야기를 공유해보아요.</div>
+    <div class="footer">No rush — take your time and share your honest thoughts when you’re ready.</div>
   </div>
 </body>
 </html>
