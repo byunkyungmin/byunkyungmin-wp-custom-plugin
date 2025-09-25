@@ -32,7 +32,7 @@ function handle_contact_form(WP_REST_Request $request) {
     $admin_subj = "새 문의가 도착했습니다: {$pageTitle}";
 
     ob_start();
-    include plugin_dir_path(__FILE__) . 'contact-templates/email-admin.php';
+    include plugin_dir_path(__FILE__) . 'contact-templates/ko/email-admin.php';
     $admin_body = ob_get_clean();
 
     $headers_admin = [
@@ -45,7 +45,7 @@ function handle_contact_form(WP_REST_Request $request) {
     // ✅ 사용자 회신 메일
     $user_subj = "문의가 접수되었습니다: {$pageTitle}";
     ob_start();
-    include plugin_dir_path(__FILE__) . 'contact-templates/email-user.php';
+    include plugin_dir_path(__FILE__) . 'contact-templates/ko/email-user.php';
     $user_body = ob_get_clean();
 
     $headers_user = [

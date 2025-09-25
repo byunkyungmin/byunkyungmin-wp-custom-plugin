@@ -16,12 +16,17 @@
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 24px;
+      text-align: center; /* 이미지와 상단 타이틀 중앙 정렬 */
+    }
+
+    .logo {
+      margin-bottom: 16px;
     }
 
     h2 {
       margin-top: 0;
       color: #0066cc;
-      font-family: 'NanumSquareNeo-EB', Arial, sans-serif;
+      font-family: Arial, sans-serif;
     }
 
     .info {
@@ -55,13 +60,16 @@
 </head>
 <body>
   <div class="container">
-    <h2>📩 새 문의가 도착했습니다</h2>
-    <p class="info"><span class="label">보낸 사람:</span> <?= esc_html($email) ?></p>
-    <p class="info"><span class="label">페이지:</span> <?= esc_html($pageTitle) ?></p>
-    <p class="info"><span class="label">URL:</span> <a href="<?= esc_url($url) ?>" target="_blank"><?= esc_html($url) ?></a></p>
-    <p class="label">메시지:</p>
+    <div class="logo">
+      <img src="https://cms.byunkyungmin.work/wp-content/uploads/2024/02/png_long.png" alt="Byun Kyung Min Logo" width="200" />
+    </div>
+    <h2>새로운 궁금증이나 농담, 피드백이 도착했어요</h2>
+    <p class="info"><span class="label">보낸 사람: </span><?= esc_html($email) ?></p>
+    <p class="info"><span class="label">페이지: </span><a href="<?= esc_url($url) ?>" target="_blank"><?= esc_html($pageTitle) ?></a></p>
+    <p class="label">내용</p>
     <div class="message-box"><?= nl2br(esc_html($message)) ?></div>
-    <div class="footer">이 메일은 ContactBubble 폼을 통해 전송되었습니다.</div>
+    <div class="footer">느려도 괜찮아요, 진심을 담아 솔직한 이야기를 공유해요.</div>
+
   </div>
 </body>
 </html>
