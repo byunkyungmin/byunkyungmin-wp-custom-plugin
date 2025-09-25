@@ -22,6 +22,7 @@ function handle_contact_form(WP_REST_Request $request) {
     $email     = sanitize_email($request['email']);
     $message   = sanitize_textarea_field($request['message']);
     $pageTitle = sanitize_text_field($request['pageTitle']);
+    $url       = esc_url_raw($request['url']); 
 
     if (empty($email) || empty($message)) {
         return new WP_Error('missing_data', '이메일과 메시지는 필수입니다.', ['status' => 400]);
@@ -30,7 +31,6 @@ function handle_contact_form(WP_REST_Request $request) {
     $admin_to   = get_option('admin_email');
     $admin_subj = "새 문의가 도착했습니다: {$pageTitle}";
 
-    // ✅ 관리자 메일 템플릿
     ob_start();
     include plugin_dir_path(__FILE__) . 'contact-templates/email-admin.php';
     $admin_body = ob_get_clean();
@@ -60,3 +60,4 @@ function handle_contact_form(WP_REST_Request $request) {
         return new WP_Error('mail_failed', '메일 전송에 실패했습니다.', ['status' => 500]);
     }
 }
+
