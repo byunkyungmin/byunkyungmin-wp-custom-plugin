@@ -58,6 +58,7 @@
     <h2>📩 새 문의가 도착했습니다</h2>
     <p class="info"><span class="label">보낸 사람:</span> <?= esc_html($email) ?></p>
     <p class="info"><span class="label">페이지:</span> <?= esc_html($pageTitle) ?></p>
+    <p class="info"><span class="label">URL:</span> <a href="<?= esc_url($url) ?>" target="_blank"><?= esc_html($url) ?></a></p>
     <p class="label">메시지:</p>
     <div class="message-box"><?= nl2br(esc_html($message)) ?></div>
     <div class="footer">이 메일은 ContactBubble 폼을 통해 전송되었습니다.</div>
