@@ -29,7 +29,7 @@ function handle_contact_form(WP_REST_Request $request) {
     }
 
     $admin_to   = get_option('admin_email');
-    $admin_subj = "새 문의가 도착했습니다: {$pageTitle}";
+    $admin_subj = "{$pageTitle}에 관한 새로운 이야기가 도착했어요";
 
     ob_start();
     include plugin_dir_path(__FILE__) . 'contact-templates/ko/email-admin.php';
@@ -42,8 +42,8 @@ function handle_contact_form(WP_REST_Request $request) {
 
     $sent_admin = wp_mail($admin_to, $admin_subj, $admin_body, $headers_admin);
 
-    // ✅ 사용자 회신 메일
-    $user_subj = "문의가 접수되었습니다: {$pageTitle}";
+    // 사용자 회신 메일
+    $user_subj = "{$pageTitle}에 관한 이야기를 잘 받았습니다";
     ob_start();
     include plugin_dir_path(__FILE__) . 'contact-templates/ko/email-user.php';
     $user_body = ob_get_clean();

@@ -48,6 +48,7 @@
       font-size: 15px;
       line-height: 1.6;
       white-space: pre-wrap;
+      text-align: left;
     }
 
     .footer {
@@ -63,12 +64,11 @@
     <div class="logo">
       <img src="https://cms.byunkyungmin.work/wp-content/uploads/2024/02/png_long.png" alt="Byun Kyung Min Logo" width="200" />
     </div>
-    <h2>새로운 궁금증이나 농담, 피드백이 도착했어요</h2>
+    <h2>새로운 메세지가 도착했어요</h2>
     <p class="info"><span class="label">보낸 사람: </span><?= esc_html($email) ?></p>
     <p class="info"><span class="label">페이지: </span><a href="<?= esc_url($url) ?>" target="_blank"><?= esc_html($pageTitle) ?></a></p>
-    <p class="label">내용</p>
     <div class="message-box"><?= nl2br(esc_html($message)) ?></div>
-    <div class="footer">느려도 괜찮아요, 진심을 담아 솔직한 이야기를 공유해요.</div>
+    <div class="footer">느려도 괜찮아요, 진심을 담아 솔직한 이야기를 공유해보아요.</div>
 
   </div>
 </body>
