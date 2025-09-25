@@ -16,7 +16,7 @@
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 24px;
-      text-align: left; /* 이미지와 상단 타이틀 중앙 정렬 */
+      text-align: center; /* 이미지와 상단 타이틀 중앙 정렬 */
     }
 
     .logo {
@@ -33,6 +33,7 @@
       font-size: 14px;
       color: #555;
       margin-bottom: 12px;
+      text-align: left; /* 본문은 다시 왼쪽 정렬 */
     }
 
     .label {
