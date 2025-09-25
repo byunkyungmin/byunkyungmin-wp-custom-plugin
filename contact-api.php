@@ -29,7 +29,7 @@ function handle_contact_form(WP_REST_Request $request) {
     }
 
     // ✅ 언어 감지 (URL에 /en/ 포함 여부)
-    $lang = (strpos($url, '/en/') !== false) ? 'en' : 'ko';
+    $lang = (strpos($url, '/en') !== false) ? 'en' : 'ko';
 
     $admin_to   = get_option('admin_email');
     $admin_subj = ($lang === 'en') 
