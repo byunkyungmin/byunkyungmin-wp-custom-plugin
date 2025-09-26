@@ -43,7 +43,7 @@ function remove_default_menu()
 
 // Google Map API (환경변수에서 불러오기)
 function my_acf_google_map_api($api) {
-    $google_map_key = getenv('GOOGLE_MAP_API_KEY');
+    $google_map_key = "AIzaSyAckwI1fXrEele34pV26ateuDXzMLR03X8";
     if ($google_map_key) {
         $api['key'] = $google_map_key;
     }

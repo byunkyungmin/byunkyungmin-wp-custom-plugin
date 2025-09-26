@@ -109,7 +109,7 @@ function handle_contact_form(WP_REST_Request $request) {
 
     $sent_admin = wp_mail($admin_to, $admin_subj, $admin_body, $headers_admin);
 
-    // 사용자 회신 메일
+    //  회신 메일
     $user_subj_raw = ($lang === 'en') 
         ? "We've received your message about {$pageTitle}" 
         : "{$pageTitle}에 관한 이야기를 잘 받았습니다";
